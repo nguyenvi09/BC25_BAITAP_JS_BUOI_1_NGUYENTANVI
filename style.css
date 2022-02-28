@@ -1,0 +1,15 @@
+.container {
+  padding: 40px 0;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.thongBao {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  margin-top: 10px;
+}
