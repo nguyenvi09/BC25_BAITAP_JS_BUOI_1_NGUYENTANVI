@@ -133,6 +133,8 @@ document.getElementById("chuVi").onclick = function() {
  *-Đầu ra:  xuất kết quả ra màn hình
  */
 
+ document.getElementById("so").style.width = "250px";
+
  document.getElementById("tong2KySo").onclick = function(){
     var so = document.getElementById("so").value *1;
     var soHangDonVi =  Math.floor(so % 10);
