@@ -1,8 +1,10 @@
+var currentFormat = new Intl.NumberFormat("vn-VN");
+
 // Bài 1: Tính tền lương nhân viên
 /**
  * - Đầu vào: 
  *  tạo biến hằng lưu giá trị mặc định 100000
- *  var soNgayLam lưu giá trị người dùng nhập vào và ép kiểu int
+ *  tạo  biến soNgayLam lưu giá trị người dùng nhập vào
  * 
  * - Xử lý:
  *  tiền lương = số ngày làm x 100000
@@ -14,11 +16,11 @@
 
 document.getElementById("tinhLuong").onclick = function() {
     const luong = 100000;
-    var soNgayLam = document.getElementById("day").value * 1;
+    var soNgayLam = document.getElementById("day").value;
 
     var tienLuong = luong * soNgayLam;
 
-    document.getElementById("kqTinhLuong").innerHTML = "Tiền lương là: " + tienLuong + " VND";
+    document.getElementById("kqTinhLuong").innerHTML = "Tiền lương là: " + currentFormat.format(tienLuong) + " VND";
     document.getElementById("kqTinhLuong").className = "thongBao";
 };
 
@@ -48,7 +50,7 @@ document.getElementById("average").onclick = function() {
 
     var average = (number_1 + number_2 + number_3 + number_4 + number_5) / 5;
 
-    document.getElementById("thongBao").innerHTML = "Trung bình của 5 số là: " + average;
+    document.getElementById("thongBao").innerHTML = "Trung bình của 5 số là: " + currentFormat.format(average);
     document.getElementById("thongBao").className = "thongBao";
 
 };
@@ -57,23 +59,23 @@ document.getElementById("average").onclick = function() {
 /**
  * - Đầu vào: 
  *  tạo const DOLLARPRICE = 23500 
- *  tạo biến dollar lấy giá trị người dùng nhập vào và ép kiểu
+ *  tạo var dollar lấy giá trị người dùng nhập vào
  * 
  * - Xử lý:
  * var quyDoi = dollar * DOLLARPRICE
  * 
  * - Đầu ra:
- * Xuất ra kết quả
+ * In ra kết quả
  * 
  */
 
 document.getElementById("quyDoi").onclick = function() {
     const DOLLAR_PRICE  = 23500;
-    var dollar = document.getElementById("dollar").value * 1;
+    var dollar = document.getElementById("dollar").value;
 
     var quyDoi = dollar * DOLLAR_PRICE;
 
-    document.getElementById("vnd").innerHTML = quyDoi + " VND";
+    document.getElementById("vnd").innerHTML = currentFormat.format(quyDoi) + " VND";
     document.getElementById("vnd").className = "thongBao";
 
 }
@@ -85,23 +87,25 @@ document.getElementById("quyDoi").onclick = function() {
  * tạo biến chieuDai, chieuRong, dienTich, chuVi 
  * 
  * -Xử lý: 
- * Lấy giá trị người dùng nhập vào lưu biến chieuDai, chieuRong
- * dienTich = chieuDai * chieuRong;
- * chuVi = (chieuDai + chieuRong) * 2;
+ * B1: Lấy giá trị người dùng nhập vào lưu biến chieuDai, chieuRong
+ * B2: dienTich = chieuDai * chieuRong;
+ * 
+ * B3: Lấy giá trị người dùng nhập vào lưu biến chieuDai, chieuRong và ép kiểu
+ * B4: chuVi = (chieuDai + chieuRong) * 2;
  * 
  * -Đầu ra:
- * Xuất kết quả dt cv ra màn hình
+ * Xuất kết quả diện tích chu vi ra màn hình
  * 
  */
 
 
 document.getElementById("dienTich").onclick = function() {
-    var chieuDai = document.getElementById("chieuDai").value * 1;
-    var chieuRong = document.getElementById("chieuRong").value * 1;
+    var chieuDai = document.getElementById("chieuDai").value;
+    var chieuRong = document.getElementById("chieuRong").value;
 
     var dienTich = chieuDai * chieuRong;
 
-    document.getElementById("kqDienTich").innerHTML = "Diện tích là: " + dienTich;
+    document.getElementById("kqDienTich").innerHTML = "Diện tích là: " + currentFormat.format(dienTich);
     document.getElementById("kqDienTich").className = "thongBao";
 
 }
@@ -112,7 +116,7 @@ document.getElementById("chuVi").onclick = function() {
 
     var chuVi = (chieuDai + chieuRong) * 2;
 
-    document.getElementById("kqChuVi").innerHTML = "Chu vi là: " + chuVi;
+    document.getElementById("kqChuVi").innerHTML = "Chu vi là: " + currentFormat.format(chuVi);
     document.getElementById("kqChuVi").className = "thongBao";
 
 }
@@ -121,14 +125,13 @@ document.getElementById("chuVi").onclick = function() {
  * Bài 5: Tính tổng 2 ký số
  * -Đầu vào: 
  * Tạo biến so lưu giá trị người dùng nhập vào và ép kiểu
- * tạo biến soHangDonVi , soHangChuc
  * 
  * -Xử lý:
  * 
- * soHangDonVi = Math.floor(so %  10) ;
- * soHangChuc = so / 10;
+ * B1: lấy ra số hàng đơn vị lưu vào biến soHangDonVi = Math.floor(so %  10) ;
+ * B2: lấy ra số hàng chục lưu vào biến soHangChuc = so / 10;
  * 
- * var tong2KySo = soHangDonVi + soHangChuc;
+ * B3: tính tổng 2 ký số var tong2KySo = soHangDonVi + soHangChuc;
  * 
  *-Đầu ra:  xuất kết quả ra màn hình
  */
